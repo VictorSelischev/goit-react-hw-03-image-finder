@@ -2,6 +2,7 @@ import { Component } from 'react';
 import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
+import { Button } from '../Button/Button';
 
 class ImageGallery extends Component {
   KEY_API = '29396697-739a936ff485fb734bceeac87';
@@ -10,19 +11,6 @@ class ImageGallery extends Component {
     gallery: null,
     isLoading: false,
   };
-
-  // componentDidMount(wordSearch) {
-  //   // const { wordSearch } = this.prop;
-  //   this.setState({ isLoading: true });
-  //   setTimeout(() => {
-  //     fetch(
-  //       `https://pixabay.com/api/?q=${wordSearch}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
-  //     )
-  //       .then(res => res.json())
-  //       .then(gallery => this.setState({ gallery }))
-  //       .finally(() => this.setState({ isLoading: false }));
-  //   }, 5000);
-  // }
 
   componentDidUpdate(prevProps) {
     if (prevProps.wordSearch !== this.props.wordSearch) {
@@ -62,6 +50,7 @@ class ImageGallery extends Component {
             })}
           </ul>
         )}
+        {gallery && <Button />}
       </>
     );
   }

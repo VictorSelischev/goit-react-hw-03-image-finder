@@ -18,8 +18,13 @@ class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
+          // display: 'grid',
+          // gridTemplateColumns: '1fr',
+          gridGap: 16,
+          paddingBottom: 24,
+          // height: '100vh',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 16,
@@ -27,7 +32,7 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
-        <ImageGallery wordSearch={ wordSearch } />
+        <ImageGallery wordSearch={wordSearch} />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
         <ToastContainer autoClose={3000} theme="colored" />
