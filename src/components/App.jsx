@@ -3,40 +3,16 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 
 class App extends Component {
-  KEY_API = '29396697-739a936ff485fb734bceeac87';
-
   state = {
-    gallery: null,
-    isLoading: false,
-    q: '',
-  }
+    wordSearch: '',
+  };
 
-  componentDidMount() {
-    const { q } = this.state;
-    this.setState({ isLoading: true });
-    setTimeout(() => {fetch(
-      `https://pixabay.com/api/?q=${q}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
-    )
-      .then(res => res.json())
-      .then(gallery => this.setState({ gallery })).finally(() => this.setState({isLoading: false}))}, 5000);
-  }
-
-  // componentDidUpdate() {
-  //   const { q } = this.state;
-  //   this.setState({ isLoading: true });
-  //   fetch(
-  //     `https://pixabay.com/api/?q=${q}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
-  //   )
-  //     .then(res => res.json())
-  //     .then(gallery => this.setState({ gallery })).finally(() => this.setState({ isLoading: false }))
-  // }
-
-  updateStateQ = (name) => {
-    this.setState({ q: name });
-  }
+  updateStateQ = name => {
+    this.setState({ wordSearch: name });
+  };
 
   render() {
-    const { gallery, isLoading } = this.state;
+    const { wordSearch, isLoading } = this.state;
 
     return (
       <div
@@ -50,8 +26,8 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
-        <ImageGallery />
-        {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery gallery={ gallery } />} */}
+        <ImageGallery wordSearch={ wordSearch } />
+        {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
       </div>
     );

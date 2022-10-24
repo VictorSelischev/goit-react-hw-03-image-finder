@@ -2,6 +2,7 @@ import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import PropTypes from 'prop-types';
+import {AiOutlineSearch} from 'react-icons/ai';
 
 class Searchbar extends Component {
   state = {
@@ -29,6 +30,7 @@ class Searchbar extends Component {
       <header className={css.searchbar}>
         <form className={css.searchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={css.searchFormButton}>
+            {/* <AiOutlineSearch /> */}
             <SearchIcon />
             {/* <span className={css.searchFormButtonLabel}>Search</span> */}
           </button>
