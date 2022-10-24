@@ -20,6 +20,16 @@ class App extends Component {
       .then(gallery => this.setState({ gallery })).finally(() => this.setState({isLoading: false}))}, 5000);
   }
 
+  // componentDidUpdate() {
+  //   const { q } = this.state;
+  //   this.setState({ isLoading: true });
+  //   fetch(
+  //     `https://pixabay.com/api/?q=${q}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
+  //   )
+  //     .then(res => res.json())
+  //     .then(gallery => this.setState({ gallery })).finally(() => this.setState({ isLoading: false }))
+  // }
+
   updateStateQ = (name) => {
     this.setState({ q: name });
   }
