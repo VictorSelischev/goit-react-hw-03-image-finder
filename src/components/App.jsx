@@ -20,7 +20,9 @@ class App extends Component {
       .then(gallery => this.setState({ gallery })).finally(() => this.setState({isLoading: false}))}, 5000);
   }
 
-
+  updateStateQ = (name) => {
+    this.setState({ q: name });
+  }
 
   render() {
     const { gallery, isLoading } = this.state;
@@ -36,7 +38,7 @@ class App extends Component {
           color: '#010101',
         }}
       >
-        <Searchbar />
+        <Searchbar onSubmitProp={this.updateStateQ} />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery gallery={ gallery } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
       </div>
