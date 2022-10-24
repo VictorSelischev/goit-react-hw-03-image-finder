@@ -30,7 +30,7 @@ class App extends Component {
         <ImageGallery wordSearch={ wordSearch } />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
-        <ToastContainer autoClose={3000} />
+        <ToastContainer autoClose={3000} theme="colored" />
       </div>
     );
   }
