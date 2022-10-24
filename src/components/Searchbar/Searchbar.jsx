@@ -2,7 +2,9 @@ import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import PropTypes from 'prop-types';
-import {AiOutlineSearch} from 'react-icons/ai';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Searchbar extends Component {
   state = {
@@ -18,7 +20,7 @@ class Searchbar extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     if (this.state.name.trim() === '') {
-      alert('Введите строку для поиска');
+      toast.error("👁 Введите строку для поиска");
       return;
     }
     this.props.onSubmitProp(this.state.name);

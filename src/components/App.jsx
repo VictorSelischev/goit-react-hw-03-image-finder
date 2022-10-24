@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
+import { ToastContainer } from 'react-toastify';
 
 class App extends Component {
   state = {
@@ -21,7 +22,7 @@ class App extends Component {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: 40,
+          fontSize: 16,
           color: '#010101',
         }}
       >
@@ -29,6 +30,7 @@ class App extends Component {
         <ImageGallery wordSearch={ wordSearch } />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
+        <ToastContainer autoClose={3000} />
       </div>
     );
   }
