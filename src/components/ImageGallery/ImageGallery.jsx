@@ -10,17 +10,32 @@ class ImageGallery extends Component {
     isLoading: false,
   };
 
-  componentDidMount(wordSearch) {
-    // const { wordSearch } = this.prop;
-    this.setState({ isLoading: true });
-    setTimeout(() => {
-      fetch(
-        `https://pixabay.com/api/?q=${wordSearch}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
-      )
-        .then(res => res.json())
-        .then(gallery => this.setState({ gallery }))
-        .finally(() => this.setState({ isLoading: false }));
-    }, 5000);
+  // componentDidMount(wordSearch) {
+  //   // const { wordSearch } = this.prop;
+  //   this.setState({ isLoading: true });
+  //   setTimeout(() => {
+  //     fetch(
+  //       `https://pixabay.com/api/?q=${wordSearch}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
+  //     )
+  //       .then(res => res.json())
+  //       .then(gallery => this.setState({ gallery }))
+  //       .finally(() => this.setState({ isLoading: false }));
+  //   }, 5000);
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.wordSearch !== this.props.wordSearch) {
+      this.setState({ isLoading: true });
+      setTimeout(() => {
+        fetch(
+          `https://pixabay.com/api/?q=${this.props.wordSearch}&page=1&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=12`
+        )
+          .then(res => res.json())
+          .then(gallery => {console.log(gallery);
+          this.setState({ gallery: gallery.hits })})
+          .finally(() => this.setState({ isLoading: false }));
+      }, 5000);
+    }
   }
 
   render() {
@@ -32,17 +47,17 @@ class ImageGallery extends Component {
           {gallery.map(({ id, webformatURL, largeImageURL, tags }) => {
             return (
               <ImageGalleryItem
-              key={id}
-              id={id}
-              webformatURL={webformatURL}
-              largeImageURL={largeImageURL}
-              tags={tags}
-            />
+                key={id}
+                id={id}
+                webformatURL={webformatURL}
+                largeImageURL={largeImageURL}
+                tags={tags}
+              />
             );
           })}
         </ul>
       )
-    )
+    );
   }
 }
 
