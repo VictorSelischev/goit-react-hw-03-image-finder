@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
+import PropTypes from 'prop-types';
 
 class Searchbar extends Component {
   state = {
@@ -49,3 +50,7 @@ class Searchbar extends Component {
 }
 
 export { Searchbar };
+
+Searchbar.propTypes = {
+  onSubmitProp: PropTypes.func.isRequired
+}
