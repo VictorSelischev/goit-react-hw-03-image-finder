@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
+        <ImageGallery />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery gallery={ gallery } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
       </div>
