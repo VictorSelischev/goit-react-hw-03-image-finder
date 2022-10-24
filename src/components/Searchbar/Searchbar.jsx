@@ -12,11 +12,15 @@ class Searchbar extends Component {
   handleChange = evt => {
     // console.log(evt);
     const { value } = evt.target;
-    this.setState({ name: value });
+    this.setState({ name: value.toLowerCase() });
   };
 
   handleSubmit = evt => {
     evt.preventDefault();
+    if (this.state.name.trim() === '') {
+      alert('Введите строку для поиска');
+      return;
+    }
     this.props.onSubmitProp(this.state.name);
     this.reset();
   };
