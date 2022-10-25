@@ -20,7 +20,7 @@ class Searchbar extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     if (this.state.name.trim() === '') {
-      toast.error("Enter text to search");
+      toast.error('Enter text to search');
       return;
     }
     this.props.onSubmitProp(this.state.name);
@@ -60,5 +60,5 @@ class Searchbar extends Component {
 export { Searchbar };
 
 Searchbar.propTypes = {
-  onSubmitProp: PropTypes.func.isRequired
-}
+  onSubmitProp: PropTypes.func.isRequired,
+};

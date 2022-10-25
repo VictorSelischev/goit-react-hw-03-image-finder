@@ -39,13 +39,17 @@ class ImageGallery extends Component {
               return res.json();
             }
             return Promise.reject(
-              new Error(`There are no pictures on demand ${this.props.wordSearch}`)
+              new Error(
+                `There are no pictures on demand ${this.props.wordSearch}`
+              )
             );
           })
           .then(gallery => {
             console.log(gallery);
             if (gallery.hits.length === 0) {
-              toast.error(`There are no pictures on demand ${this.props.wordSearch}`);
+              toast.error(
+                `There are no pictures on demand ${this.props.wordSearch}`
+              );
               return;
             }
             this.setState(prevState => ({
@@ -83,7 +87,9 @@ class ImageGallery extends Component {
           </ul>
         )}
         {isLoading && <Loader />}
-        {!isLoading && gallery.length !== 0 && <Button onClick={this.handleButtonLoadMore} />}
+        {!isLoading && gallery.length !== 0 && (
+          <Button onClick={this.handleButtonLoadMore} />
+        )}
       </>
     );
   }
@@ -93,4 +99,4 @@ export { ImageGallery };
 
 ImageGallery.propTypes = {
   wordSearch: PropTypes.string.isRequired,
-}
+};
