@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   render() {
-    const { wordSearch, isLoading } = this.state;
+    const { wordSearch } = this.state;
 
     return (
       <div
@@ -32,6 +32,7 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
+        {console.log(wordSearch)}
         <ImageGallery wordSearch={wordSearch} />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
