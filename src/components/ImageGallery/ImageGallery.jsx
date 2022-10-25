@@ -3,6 +3,7 @@ import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
 import { Button } from '../Button/Button';
+import { toast } from 'react-toastify';
 
 class ImageGallery extends Component {
   KEY_API = '29396697-739a936ff485fb734bceeac87';
@@ -19,6 +20,10 @@ class ImageGallery extends Component {
     const { page, per_page } = this.state;
     console.log(prevProps.wordSearch);
     console.log(this.props.wordSearch);
+    if (prevProps.wordSearch !== this.props.wordSearch) {
+      this.setState({ page: 1, gallery: [] });
+    }
+
     if (
       prevProps.wordSearch !== this.props.wordSearch ||
       prevState.page !== page
@@ -33,18 +38,22 @@ class ImageGallery extends Component {
               return res.json();
             }
             return Promise.reject(
-              new Error(`Картинок по запросу ${this.props.wordSearch} нет`)
+              new Error(`There are no pictures on demand ${this.props.wordSearch}`)
             );
           })
           .then(gallery => {
             console.log(gallery);
+            if (gallery.hits.length === 0) {
+              toast.error(`There are no pictures on demand ${this.props.wordSearch}`);
+              return;
+            }
             this.setState(prevState => ({
               gallery: [...prevState.gallery, ...gallery.hits],
             }));
           })
           .catch(error => this.setState({ error }))
           .finally(() => this.setState({ isLoading: false }));
-      }, 3000);
+      }, 2000);
     }
   }
 
