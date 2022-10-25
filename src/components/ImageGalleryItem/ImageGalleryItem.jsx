@@ -20,7 +20,7 @@ class ImageGalleryItem extends Component {
 
     return (
       <li className={css.galleryItem} onClick={this.toggleModal}>
-        <img src={webformatURL} alt={tags} />
+        <img src={webformatURL} alt={tags} loading="lazy" />
         {showModal && <Modal largeImageURL={largeImageURL} tags={tags} onClose={this.toggleModal} />}
       </li>
     );
