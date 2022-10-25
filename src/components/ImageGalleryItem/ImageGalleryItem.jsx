@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import css from './ImageGalleryItem.module.css';
+import { PropTypes } from 'prop-types';
 
 class ImageGalleryItem extends Component {
   render() {
-    const { webformatURL, tags } = this.props;
+    const { webformatURL, tags, largeImageURL } = this.props;
 
     return (
       <li className={css.galleryItem}>
@@ -14,3 +15,9 @@ class ImageGalleryItem extends Component {
 }
 
 export { ImageGalleryItem };
+
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+}

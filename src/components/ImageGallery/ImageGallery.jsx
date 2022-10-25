@@ -4,6 +4,7 @@ import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
 import { Button } from '../Button/Button';
 import { toast } from 'react-toastify';
+import { PropTypes } from 'prop-types';
 
 class ImageGallery extends Component {
   KEY_API = '29396697-739a936ff485fb734bceeac87';
@@ -73,7 +74,6 @@ class ImageGallery extends Component {
               return (
                 <ImageGalleryItem
                   key={id}
-                  id={id}
                   webformatURL={webformatURL}
                   largeImageURL={largeImageURL}
                   tags={tags}
@@ -90,3 +90,7 @@ class ImageGallery extends Component {
 }
 
 export { ImageGallery };
+
+ImageGallery.propTypes = {
+  wordSearch: PropTypes.string.isRequired,
+}

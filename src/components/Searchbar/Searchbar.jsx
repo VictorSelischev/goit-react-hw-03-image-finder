@@ -2,7 +2,7 @@ import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import PropTypes from 'prop-types';
-import { AiOutlineSearch } from 'react-icons/ai';
+// import { AiOutlineSearch } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
