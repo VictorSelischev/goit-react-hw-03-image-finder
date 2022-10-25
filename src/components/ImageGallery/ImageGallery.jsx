@@ -19,8 +19,8 @@ class ImageGallery extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { page, per_page } = this.state;
-    console.log(prevProps.wordSearch);
-    console.log(this.props.wordSearch);
+    // console.log(prevProps.wordSearch);
+    // console.log(this.props.wordSearch);
     if (prevProps.wordSearch !== this.props.wordSearch) {
       this.setState({ page: 1, gallery: [] });
     }
@@ -45,7 +45,7 @@ class ImageGallery extends Component {
             );
           })
           .then(gallery => {
-            console.log(gallery);
+            // console.log(gallery);
             if (gallery.hits.length === 0) {
               toast.error(
                 `There are no pictures on demand ${this.props.wordSearch}`
@@ -67,7 +67,7 @@ class ImageGallery extends Component {
   };
 
   render() {
-    const { gallery, isLoading, error } = this.state;
+    const { gallery, isLoading, error, per_page } = this.state;
 
     return (
       <>
@@ -87,7 +87,7 @@ class ImageGallery extends Component {
           </ul>
         )}
         {isLoading && <Loader />}
-        {!isLoading && gallery.length !== 0 && (
+        {!isLoading && gallery.length !== 0 &&  gallery.length >= per_page && (
           <Button onClick={this.handleButtonLoadMore} />
         )}
       </>

@@ -32,7 +32,7 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
-        {console.log(wordSearch)}
+        {/* {console.log(wordSearch)} */}
         <ImageGallery wordSearch={wordSearch} />
         {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
         {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
