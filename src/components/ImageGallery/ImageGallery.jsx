@@ -74,7 +74,7 @@ class ImageGallery extends Component {
           </ul>
         )}
         {isLoading && <Loader />}
-        {gallery.length !== 0 && <Button onClick={this.handleButtonLoadMore} />}
+        {!isLoading && gallery.length !== 0 && <Button onClick={this.handleButtonLoadMore} />}
       </>
     );
   }
