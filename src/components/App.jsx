@@ -18,11 +18,8 @@ class App extends Component {
     return (
       <div
         style={{
-          // display: 'grid',
-          // gridTemplateColumns: '1fr',
           gridGap: 16,
           paddingBottom: 24,
-          // height: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -32,10 +29,7 @@ class App extends Component {
         }}
       >
         <Searchbar onSubmitProp={this.updateStateQ} />
-        {/* {console.log(wordSearch)} */}
         <ImageGallery wordSearch={wordSearch} />
-        {/* {isLoading ? <h2>Loading...</h2> : <ImageGallery wordSearch={ wordSearch } />} */}
-        {/* {gallery && <div>Тут будет галерея после фетча</div>} */}
         <ToastContainer autoClose={3000} theme="colored" />
       </div>
     );
@@ -43,20 +37,3 @@ class App extends Component {
 }
 
 export { App };
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };

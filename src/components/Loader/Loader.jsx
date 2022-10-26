@@ -5,7 +5,6 @@ import { Circles } from 'react-loader-spinner';
 class Loader extends Component {
   render() {
     return (
-      // <h2>Loading...</h2>
       <div className={css.loader}>
         <Circles
           height="80"

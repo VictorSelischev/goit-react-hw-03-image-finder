@@ -2,7 +2,6 @@ import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import PropTypes from 'prop-types';
-// import { AiOutlineSearch } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,7 +11,6 @@ class Searchbar extends Component {
   };
 
   handleChange = evt => {
-    // console.log(evt);
     const { value } = evt.target;
     this.setState({ name: value.toLowerCase() });
   };
@@ -36,9 +34,7 @@ class Searchbar extends Component {
       <header className={css.searchbar}>
         <form className={css.searchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={css.searchFormButton}>
-            {/* <AiOutlineSearch /> */}
             <SearchIcon />
-            {/* <span className={css.searchFormButtonLabel}>Search</span> */}
           </button>
 
           <input

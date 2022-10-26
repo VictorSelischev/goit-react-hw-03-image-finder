@@ -20,8 +20,6 @@ class ImageGallery extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { page, per_page } = this.state;
-    // console.log(prevProps.wordSearch);
-    // console.log(this.props.wordSearch);
     if (prevProps.wordSearch !== this.props.wordSearch) {
       this.setState({ page: 1, gallery: [] });
     }
@@ -33,21 +31,7 @@ class ImageGallery extends Component {
       this.setState({ isLoading: true });
       setTimeout(() => {
         ImageAPI.fetchImage(this.props.wordSearch, page, this.KEY_API, per_page)
-        // fetch(
-        //   `https://pixabay.com/api/?q=${this.props.wordSearch}&page=${page}&key=${this.KEY_API}&image_type=photo&orientation=horizontal&per_page=${per_page}`
-        // )
-        //   .then(res => {
-        //     if (res.ok) {
-        //       return res.json();
-        //     }
-        //     return Promise.reject(
-        //       new Error(
-        //         `There are no pictures on demand ${this.props.wordSearch}`
-        //       )
-        //     );
-        //   })
           .then(gallery => {
-            // console.log(gallery);
             if (gallery.hits.length === 0) {
               toast.error(
                 `There are no pictures on demand ${this.props.wordSearch}`

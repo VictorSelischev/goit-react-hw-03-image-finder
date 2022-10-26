@@ -18,10 +18,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /* max-width: 320px; */
-    /* width: calc(100vw - 56px);
-    min-height: calc(100vh - 56px); */
     background-color: transparent;
-    /* border-radius: 8px; */
-    /* overflow: hidden; */
 }
